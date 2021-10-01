@@ -22,6 +22,7 @@ namespace UserMaintenance
             lblFullName.Text = Resource1.FullName;
             btnAdd.Text = Resource1.Add;
             btnWrite.Text = Resource1.WriteToFile;
+            btnDelete.Text = Resource1.Delete;
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
@@ -54,6 +55,20 @@ namespace UserMaintenance
                 }
                 sw.Close();
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var itemToDel = (User)listUsers.SelectedItem;
+                users.Remove(itemToDel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }
