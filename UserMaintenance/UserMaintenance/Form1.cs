@@ -39,13 +39,15 @@ namespace UserMaintenance
         private void btnWrite_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            StreamWriter sw = null;
-            string filter = "CSV file (*.csv)|*.csv| All Files (*.*)|*.*";
+            sfd.InitialDirectory = Application.StartupPath;
+            sfd.Filter = "Comma Seperated Values (*.csv)|*.csv";
+            sfd.DefaultExt = "csv";
+            sfd.AddExtension = true;
+
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                filter = sfd.FileName;
-                sw = new StreamWriter(filter);
+                StreamWriter sw = new StreamWriter(sfd.FileName);
 
                 foreach (var u in users)
                 {
