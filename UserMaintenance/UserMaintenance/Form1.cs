@@ -40,7 +40,7 @@ namespace UserMaintenance
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.InitialDirectory = Application.StartupPath;
-            sfd.Filter = "Comma Seperated Values (*.csv)|*.csv";
+            //sfd.Filter = "Comma Seperated Values (*.csv)|*.csv";
             sfd.DefaultExt = "csv";
             sfd.AddExtension = true;
 
