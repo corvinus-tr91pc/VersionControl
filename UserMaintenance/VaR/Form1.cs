@@ -24,6 +24,10 @@ namespace VaR
             dataGridView1.DataSource = Ticks;
 
             CreatePortfolio();
+
+            int elemszám = Portfolio.Count();
+            decimal részvényekSzáma = (from x in Portfolio
+                                       select x.Volume).Sum();
         }
 
         void CreatePortfolio()
@@ -33,6 +37,22 @@ namespace VaR
             Portfolio.Add(new PortfolioItem() { Index = "ELMU", Volume = 10 });
 
             dataGridView2.DataSource = Portfolio;
+        }
+
+        private decimal GetPortfolioValue(DateTime date)
+        {
+            decimal value = 0;
+            foreach (var item in Portfolio)
+            {
+                var last = (from x in Ticks
+                            where item.Index == x.Index.Trim()
+                               && date <= x.TradingDay
+                               orderby x.TradingDay
+                            select x)
+                            .First();
+                value += (decimal)last.Price * item.Volume;
+            }
+            return value;
         }
     }
 }
