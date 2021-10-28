@@ -22,22 +22,24 @@ namespace MNB_Webapp
         {
             InitializeComponent();
 
-            ProcessXml();
-            LoadChartData();
+            RefreshData();
+            
         }
 
-        void ProcessXml()
+        void RefreshData()
         {
+            Rates.Clear();
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                currencyNames = comboBox1.Text,
+                startDate = dateTimePicker1.Value.ToString(),
+                endDate = dateTimePicker2.Value.ToString()
             };
 
             var response = mnbService.GetExchangeRates(request);
+
 
             var result = response.GetExchangeRatesResult;
 
@@ -62,6 +64,8 @@ namespace MNB_Webapp
                 if (unit != 0)
                     rate.Value = value / unit;
             }
+
+            LoadChartData();
         }
 
         void LoadChartData()
@@ -80,6 +84,21 @@ namespace MNB_Webapp
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
