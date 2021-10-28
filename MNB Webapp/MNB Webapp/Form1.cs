@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MNB_Webapp.MnbServiceReference;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace MNB_Webapp
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
+
+
         }
     }
 }
