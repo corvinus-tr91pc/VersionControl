@@ -1,4 +1,5 @@
-﻿using MNB_Webapp.MnbServiceReference;
+﻿using MNB_Webapp.Entities;
+using MNB_Webapp.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,8 @@ namespace MNB_Webapp
 {
     public partial class Form1 : Form
     {
-        
+        BindingList<RateData> Rates = new BindingList<RateData>();
+
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +32,8 @@ namespace MNB_Webapp
             var response = mnbService.GetExchangeRates(request);
 
             var result = response.GetExchangeRatesResult;
+
+            dataGridView1.DataSource = Rates;
         }
     }
 }
