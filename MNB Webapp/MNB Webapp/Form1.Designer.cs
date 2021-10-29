@@ -29,9 +29,9 @@ namespace MNB_Webapp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chartRateData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -61,17 +61,17 @@ namespace MNB_Webapp
             this.chartRateData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.chartRateData.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chartRateData.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chartRateData.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartRateData.Legends.Add(legend2);
             this.chartRateData.Location = new System.Drawing.Point(867, 107);
             this.chartRateData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartRateData.Name = "chartRateData";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartRateData.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartRateData.Series.Add(series2);
             this.chartRateData.Size = new System.Drawing.Size(1109, 694);
             this.chartRateData.TabIndex = 1;
             this.chartRateData.Text = "chart1";
@@ -81,17 +81,17 @@ namespace MNB_Webapp
             this.dateTimePicker1.Location = new System.Drawing.Point(27, 43);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(201, 38);
+            this.dateTimePicker1.Size = new System.Drawing.Size(500, 38);
             this.dateTimePicker1.TabIndex = 2;
             this.dateTimePicker1.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(278, 43);
+            this.dateTimePicker2.Location = new System.Drawing.Point(533, 43);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(201, 38);
+            this.dateTimePicker2.Size = new System.Drawing.Size(500, 38);
             this.dateTimePicker2.TabIndex = 3;
             this.dateTimePicker2.Value = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
@@ -99,7 +99,10 @@ namespace MNB_Webapp
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(867, 41);
+            this.comboBox1.Items.AddRange(new object[] {
+            "EUR",
+            "USD"});
+            this.comboBox1.Location = new System.Drawing.Point(1150, 46);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 39);

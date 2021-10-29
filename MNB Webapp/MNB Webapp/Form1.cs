@@ -17,17 +17,38 @@ namespace MNB_Webapp
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
 
         public Form1()
         {
             InitializeComponent();
-
+            GetComboBoyData();
             RefreshData();
             
         }
 
+        private void GetComboBoyData()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+
+            XmlDocument vxml = new XmlDocument();
+            vxml.LoadXml(result);
+            foreach (XmlElement item in vxml.DocumentElement.FirstChild.ChildNodes)
+            {
+                Currencies.Add(item.InnerText);
+            }
+            comboBox1.DataSource = Currencies;
+        }
+
         void RefreshData()
         {
+            if (comboBox1.SelectedItem == null)
+            {
+                return;
+            }
             Rates.Clear();
             var mnbService = new MNBArfolyamServiceSoapClient();
 
@@ -57,6 +78,8 @@ namespace MNB_Webapp
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
@@ -93,7 +116,7 @@ namespace MNB_Webapp
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            RefreshData();
+           RefreshData();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
