@@ -68,7 +68,10 @@ namespace GameFactory
 
         private void btnSelectBall_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = btnBallColor.BackColor
+            };
         }
 
         private void DisplayNext()
