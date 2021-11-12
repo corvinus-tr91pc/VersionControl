@@ -95,5 +95,14 @@ namespace GameFactory
             button.BackColor = colorPicker.Color;
 
         }
+
+        private void btnSelectPresent_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                PresentBox = btnBoxColor.BackColor,
+                PresentRibbon = btnRibbonColor.BackColor
+            };
+        }
     }
 }

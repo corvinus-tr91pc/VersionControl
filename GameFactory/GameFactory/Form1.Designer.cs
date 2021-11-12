@@ -37,11 +37,17 @@ namespace GameFactory
             this.createTimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
             this.btnBallColor = new System.Windows.Forms.Button();
+            this.btnSelectPresent = new System.Windows.Forms.Button();
+            this.btnBoxColor = new System.Windows.Forms.Button();
+            this.btnRibbonColor = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.btnRibbonColor);
+            this.mainPanel.Controls.Add(this.btnBoxColor);
+            this.mainPanel.Controls.Add(this.btnSelectPresent);
             this.mainPanel.Controls.Add(this.btnBallColor);
             this.mainPanel.Controls.Add(this.lblNext);
             this.mainPanel.Controls.Add(this.btnSelectBall);
@@ -54,7 +60,7 @@ namespace GameFactory
             // lblNext
             // 
             this.lblNext.AutoSize = true;
-            this.lblNext.Location = new System.Drawing.Point(548, 142);
+            this.lblNext.Location = new System.Drawing.Point(719, 142);
             this.lblNext.Name = "lblNext";
             this.lblNext.Size = new System.Drawing.Size(174, 32);
             this.lblNext.TabIndex = 2;
@@ -95,12 +101,42 @@ namespace GameFactory
             // btnBallColor
             // 
             this.btnBallColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnBallColor.Location = new System.Drawing.Point(37, 239);
+            this.btnBallColor.Location = new System.Drawing.Point(217, 235);
             this.btnBallColor.Name = "btnBallColor";
-            this.btnBallColor.Size = new System.Drawing.Size(174, 75);
+            this.btnBallColor.Size = new System.Drawing.Size(186, 75);
             this.btnBallColor.TabIndex = 3;
             this.btnBallColor.UseVisualStyleBackColor = false;
             this.btnBallColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // btnSelectPresent
+            // 
+            this.btnSelectPresent.Location = new System.Drawing.Point(409, 142);
+            this.btnSelectPresent.Name = "btnSelectPresent";
+            this.btnSelectPresent.Size = new System.Drawing.Size(186, 75);
+            this.btnSelectPresent.TabIndex = 4;
+            this.btnSelectPresent.Text = "PRESENT";
+            this.btnSelectPresent.UseVisualStyleBackColor = true;
+            this.btnSelectPresent.Click += new System.EventHandler(this.btnSelectPresent_Click);
+            // 
+            // btnBoxColor
+            // 
+            this.btnBoxColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnBoxColor.Location = new System.Drawing.Point(409, 235);
+            this.btnBoxColor.Name = "btnBoxColor";
+            this.btnBoxColor.Size = new System.Drawing.Size(186, 75);
+            this.btnBoxColor.TabIndex = 5;
+            this.btnBoxColor.UseVisualStyleBackColor = false;
+            this.btnBoxColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // btnRibbonColor
+            // 
+            this.btnRibbonColor.BackColor = System.Drawing.Color.Blue;
+            this.btnRibbonColor.Location = new System.Drawing.Point(409, 316);
+            this.btnRibbonColor.Name = "btnRibbonColor";
+            this.btnRibbonColor.Size = new System.Drawing.Size(186, 75);
+            this.btnRibbonColor.TabIndex = 6;
+            this.btnRibbonColor.UseVisualStyleBackColor = false;
+            this.btnRibbonColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
             // Form1
             // 
@@ -125,6 +161,9 @@ namespace GameFactory
         private System.Windows.Forms.Button btnSelectBall;
         private System.Windows.Forms.Button btnSelectCar;
         private System.Windows.Forms.Button btnBallColor;
+        private System.Windows.Forms.Button btnRibbonColor;
+        private System.Windows.Forms.Button btnBoxColor;
+        private System.Windows.Forms.Button btnSelectPresent;
     }
 }
 
