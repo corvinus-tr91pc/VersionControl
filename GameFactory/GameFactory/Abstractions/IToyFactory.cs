@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameFactory.Abstractions
 {
-    interface IToyFactory
+    public interface IToyFactory
     {
-        public interface IToyFactory
-        {
-            Toy CreateNew();
-        }
+        Toy CreateNew();
     }
 }
