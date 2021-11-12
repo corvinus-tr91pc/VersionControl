@@ -36,11 +36,13 @@ namespace GameFactory
             this.btnSelectCar = new System.Windows.Forms.Button();
             this.createTimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnColor = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.btnColor);
             this.mainPanel.Controls.Add(this.lblNext);
             this.mainPanel.Controls.Add(this.btnSelectBall);
             this.mainPanel.Controls.Add(this.btnSelectCar);
@@ -90,6 +92,16 @@ namespace GameFactory
             this.conveyorTimer.Interval = 10;
             this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
             // 
+            // btnColor
+            // 
+            this.btnColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnColor.Location = new System.Drawing.Point(37, 239);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(174, 75);
+            this.btnColor.TabIndex = 3;
+            this.btnColor.UseVisualStyleBackColor = false;
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -112,6 +124,7 @@ namespace GameFactory
         private System.Windows.Forms.Label lblNext;
         private System.Windows.Forms.Button btnSelectBall;
         private System.Windows.Forms.Button btnSelectCar;
+        private System.Windows.Forms.Button btnColor;
     }
 }
 
