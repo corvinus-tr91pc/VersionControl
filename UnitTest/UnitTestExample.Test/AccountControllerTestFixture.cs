@@ -54,8 +54,8 @@ namespace UnitTestExample.Test
 
         [
     Test,
-    TestCase("asdfg@gmail.com", "Abcd1234"),
-    TestCase("asdfg@outlook.com", "2342JEKnens"),
+    TestCase("irf@uni-corvinus.hu", "Abcd1234"),
+    TestCase("irf@uni-corvinus.hu", "Abcd1234567"),
 ]
         public void TestRegisterHappyPath(string email, string password)
         {
@@ -82,10 +82,10 @@ namespace UnitTestExample.Test
 ]
         public void TestRegisterValidateException(string email, string password)
         {
-            //Arrange
+            // Arrange
             var accountController = new AccountController();
 
-            //Act
+            // Act
             try
             {
                 var actualResult = accountController.Register(email, password);
@@ -95,6 +95,8 @@ namespace UnitTestExample.Test
             {
                 Assert.IsInstanceOf<ValidationException>(ex);
             }
+
+            // Assert
         }
     }
 }
