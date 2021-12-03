@@ -18,17 +18,27 @@ namespace Mikroszimulacio
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
         Random rng = new Random(1234);
+
+        List<int> malePopulation = new List<int>();
+        List<int> femalePopulation = new List<int>();
+
         public Form1()
         {
             InitializeComponent();
 
-            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
+            
+        }
+
+        private void Simulation()
+        {
+            malePopulation.Clear();
+            femalePopulation.Clear();
+            richTextBox1.Clear();
+            Population = GetPopulation(textBox1.Text);
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
-            dataGridView1.DataSource = DeathProbabilities;
-
-            for (int year = 2005; year <= 2024; year++)
+            for (int year = 2005; year <= numericUpDown1.Value; year++)
             {
                 for (int i = 0; i < Population.Count; i++)
                 {
@@ -43,6 +53,8 @@ namespace Mikroszimulacio
                                     select x).Count();
                 Console.WriteLine(
                     string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+                malePopulation.Add(nbrOfMales);
+                femalePopulation.Add(nbrOfFemales);
             }
         }
 
@@ -139,6 +151,34 @@ namespace Mikroszimulacio
             }
 
             return probs;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Simulation();
+            DisplayResults();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            textBox1.Text = ofd.FileName;
+        }
+
+        void DisplayResults()
+        {
+            
+            for (int year = 2005; year <= numericUpDown1.Value; year++)
+            {
+                richTextBox1.Text += "Szimulációs év: " + year + "\n";
+                richTextBox1.Text += "\t Fiúk: " + malePopulation[year-2005] + "\n";
+                richTextBox1.Text += "\t Lányok: " + femalePopulation[year - 2005] + "\n";
+            }
+               
         }
     }
 }
